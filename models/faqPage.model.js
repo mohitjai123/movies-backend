@@ -1,8 +1,8 @@
 const mongoose = require("mongoose")
 
 const FAQPageSchema = new mongoose.Schema({
-    question: String,
-    answer: String,
+    question: { type: String, required: true },
+    answer: { type: String, required: true },
     created_at: { type: Date, default: Date.now }
   });
 

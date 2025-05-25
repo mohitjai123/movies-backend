@@ -2,7 +2,7 @@
 const mongoose = require("mongoose")
 
 const AboutUsSchema = new mongoose.Schema({
-    content: String,
+    content: { type: String, required: true },
     updated_at: { type: Date, default: Date.now }
   });
   

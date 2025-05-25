@@ -2,11 +2,11 @@ const mongoose = require("mongoose")
 
 const EpisodeSchema = new mongoose.Schema({
     video_id: mongoose.Schema.Types.ObjectId,
-    title: String,
-    episode_number: Number,
-    season: Number,
-    video_url: String,
-    duration: Number,
+    title: { type: String, required: true },
+    episode_number: { type: Number, required: true },
+    season: { type: Number, required: true },
+    video_url: { type: String, required: true },
+    duration: { type: Number, required: true },
     created_at: { type: Date, default: Date.now }
   });
   

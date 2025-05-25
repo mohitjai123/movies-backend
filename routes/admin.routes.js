@@ -5,7 +5,7 @@ const { adminController } = require('../controllers/other.controller');
 router.post('/', adminController.create);
 router.get('/', adminController.getAll);
 router.get('/:id', adminController.getById);
-router.put('/:id', adminController.update);
+router.patch('/:id', adminController.update);
 router.delete('/:id', adminController.remove);
 
 module.exports = router;

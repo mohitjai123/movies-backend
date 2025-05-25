@@ -1,10 +1,10 @@
 const mongoose = require("mongoose")
 
 const NotificationSchema = new mongoose.Schema({
-    title: String,
-    message: String,
+    title: { type: String, required: true },
+    message: { type: String, required: true },
     user_id: mongoose.Schema.Types.ObjectId,
-    sent_at: Date,
+    sent_at: { type: Date, default: Date.now() },
     read: Boolean
   });
   

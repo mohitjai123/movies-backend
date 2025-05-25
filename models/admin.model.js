@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 const AdminSchema = new mongoose.Schema({
     user_id: mongoose.Schema.Types.ObjectId,
-    super_admin: Boolean,
+    super_admin: {type:Boolean},
     created_at: { type: Date, default: Date.now }
   });
   
