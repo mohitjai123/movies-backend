@@ -10,7 +10,7 @@ const generateCrud = (Model) => ({
 module.exports = {
   subAdminController: generateCrud(require('../models/subAdmin.model')),
   loginAttemptController: generateCrud(require('../models/loginAttempt.model')),
-  otpVerificationController: generateCrud(require('../models/otpVerification.model')),
+  otpVerificationController: generateCrud(require('../models/otpverification.model')),
   aboutUsController: generateCrud(require('../models/aboutUs.model')),
   faqPageController: generateCrud(require('../models/faqPage.model')),
   policyController: generateCrud(require('../models/policy.model')),

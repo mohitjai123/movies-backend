@@ -8,16 +8,16 @@ const indexRoutes = require("./routes/index.routes")
 
 app.use(express.json());
 app.use(cors({
-    origin: ["*"],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true
-  }));
+  origin: "*",
+  methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+  credentials: true
+}));
 app.use("/api", indexRoutes)
 app.use('/uploads', express.static('uploads'));
 const connectDB = require('./config/db');
 require('dotenv').config();
 
-connectDB();
+connectDB();  
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
