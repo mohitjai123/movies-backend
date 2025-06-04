@@ -10,6 +10,7 @@ router.use('/aboutus', require('./aboutUs.routes'));
 router.use('/faq', require('./faqPage.routes'));
 router.use('/policies', require('./policy.routes'));
 router.use('/categories', require('./category.routes'));
+router.use('/products', require('./product.routes'));
 router.use('/videos', require('./video.routes'));
 router.use('/trailers', require('./trailer.routes'));
 router.use('/episodes', require('./episode.routes'));
