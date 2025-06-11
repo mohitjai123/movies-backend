@@ -1,5 +1,5 @@
 // controllers/video.controller.js
-const Video = require('../models/category.model');
+const Video = require('../models/genres.model');
 const fs = require("fs")
 
 exports.create = async (req, res) => {
@@ -35,7 +35,7 @@ exports.getAll = async (req, res) => {
 exports.getById = async (req, res) => {
   try {
     const video = await Video.findById(req.params.id);
-    if (!video) return res.status(404).json({ message: 'Category not found' });
+    if (!video) return res.status(404).json({ message: 'Video not found' });
     res.json(video);
   } catch (err) {
     res.status(400).json({ message: err.message });
@@ -45,7 +45,9 @@ exports.getById = async (req, res) => {
 exports.update = async (req, res) => {
   try {
     const existing = await Video.findById(req.params.id);
-    if (!existing) return res.status(404).json({ message: 'Category not found' });
+    if (!existing) return res.status(404).json({ message: 'Video not found' });
+
+    // Handle file replacement
     if (req.files) {
       if (req.files.icon_url) {
         if (existing.icon_url) fs.unlinkSync(existing.icon_url);
@@ -63,10 +65,10 @@ exports.update = async (req, res) => {
 exports.remove = async (req, res) => {
   try {
     const video = await Video.findById(req.params.id);
-    if (!video) return res.status(404).json({ message: 'Category not found' });
+    if (!video) return res.status(404).json({ message: 'Video not found' });
     if (video.icon_url) fs.unlinkSync(video.icon_url);
     await Video.findByIdAndDelete(req.params.id);
-    res.json({ message: 'Category deleted successfully' });
+    res.json({ message: 'Video deleted successfully' });
   } catch (err) {
     res.status(400).json({ message: err.message });
   }

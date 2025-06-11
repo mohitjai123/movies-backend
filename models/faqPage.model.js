@@ -3,7 +3,6 @@ const mongoose = require("mongoose")
 const FAQPageSchema = new mongoose.Schema({
     question: { type: String, required: true },
     answer: { type: String, required: true },
-    created_at: { type: Date, default: Date.now }
-  });
+  },{timestamps:true});
 
 module.exports = mongoose.model('FAQPage', FAQPageSchema);

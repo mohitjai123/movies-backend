@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const videoController = require('../controllers/episode.controller');
+const videoController = require('../controllers/series.controller');
 const upload = require('../middleware/multer');
 
 

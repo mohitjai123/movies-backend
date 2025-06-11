@@ -1,16 +1,24 @@
 const mongoose = require("mongoose")
 
-const EpisodeSchema = new mongoose.Schema({
+const MoviesSchema = new mongoose.Schema({
     title: { type: String, required: true },
+    tagline: { type: String, },
     description: { type: String, required: true },
     video_url: { type: String, required: true },
     release_date:{type:String, default:""},
+    vertical_thumbnail_url: { type: String, required: true },
     horizontal_thumbnail_url: { type: String, required: true },
     duration: { type: Number, required: true },
-    season_id: {
+    genres: [{
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Season'
-    },
+      ref: 'Genres'
+    }],
+    languages: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Languages'
+    }],
+    is_premium: { type: Boolean, default: true },
+    is_adult: { type: Boolean, default: false },
     active: { type: Boolean, default: true },
     rating:{type:Number, default:0.0, max:10},
     reviews:[
@@ -22,4 +30,4 @@ const EpisodeSchema = new mongoose.Schema({
     uploaded_by: mongoose.Schema.Types.ObjectId
   }, {timestamps:true});
 
-module.exports = mongoose.model('Episode', EpisodeSchema);
+module.exports = mongoose.model('Movies', MoviesSchema);
